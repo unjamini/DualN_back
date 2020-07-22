@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Button, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import type { NavigationScreenProps } from '@react-navigation/native';
 
@@ -69,6 +69,7 @@ const Session = ({ navigation }: Props) => {
         clearTimeout(timer);
       };
     }
+    return () => {};
   }, [currentIndex, running]);
 
   if (currentIndex === STIMULI_IN_BLOCK) {
@@ -85,12 +86,16 @@ const Session = ({ navigation }: Props) => {
           </View>
         </View>
         <View style={styles.buttonList}>
-          <TouchableHighlight style={styles.button}>
-            <Button title="Letter" color="black" onPress={recordLetter} />
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.button}>
-            <Button title="Position" onPress={recordPosition} color="black" />
-          </TouchableHighlight>
+          <View>
+            <TouchableOpacity onPress={recordLetter}>
+              <Text style={styles.button}>Letter</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity onPress={recordPosition}>
+              <Text style={styles.button}>Position</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );

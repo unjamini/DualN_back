@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { View, Button, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import type { NavigationScreenProps } from '@react-navigation/native';
 
@@ -14,13 +14,11 @@ type Props = {|
 const Home = ({ navigation }: Props) => (
   <View style={styles.container}>
     <Text style={styles.appName}>Dual N-back</Text>
-    <TouchableHighlight style={styles.button}>
-      <Button
-        title="Play"
-        color="#a99be0"
-        onPress={() => navigation.navigate('Session')}
-      />
-    </TouchableHighlight>
+    <View>
+      <TouchableOpacity onPress={() => navigation.navigate('Session')}>
+        <Text style={styles.button}>Play</Text>
+      </TouchableOpacity>
+    </View>
   </View>
 );
 

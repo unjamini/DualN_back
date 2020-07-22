@@ -2,30 +2,35 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
   },
   row: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   box: {
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 60,
+    backgroundColor: 'white',
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: '#8963ba',
+    borderColor: '#bcb1e6',
     margin: 5,
+    padding: 25,
+
   },
   box2: {
-    width: 70,
-    height: 70,
-    backgroundColor: '#bea1e3',
+    width: 60,
+    height: 60,
+    backgroundColor: '#bcb1e6',
     borderWidth: 2,
-    borderColor: '#8963ba',
+    borderColor: '#bcb1e6',
     borderRadius: 10,
     margin: 5,
+    padding: 25,
   },
 });
 

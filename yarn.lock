@@ -1419,6 +1419,11 @@ acorn@^7.1.1, acorn@^7.2.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
   integrity sha512-tLc0wSnatxAQHVHUapaHdz72pi9KUyHjq5KyHjGg9Y8Ifdc79pTh2XvI6I1/chZbnM7QtNKzh66ooDogPZSleA==
 
+adb@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/adb/-/adb-0.2.0.tgz#622d803b3fcc0d004751fc07661856442e3eb3c1"
+  integrity sha1-Yi2AOz/MDQBHUfwHZhhWRC4+s8E=
+
 airbnb@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/airbnb/-/airbnb-0.0.2.tgz#8d949cce0e6c653b7d0fa430fc27ed77483a619c"

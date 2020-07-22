@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useCallback, useState } from 'react';
-import { View, Button, Text, TouchableHighlight } from 'react-native';
+import { View, Button, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -55,20 +55,16 @@ const Results = ({ navigation }: Props) => {
         )}{' '}
         %
       </Text>
-      <TouchableHighlight style={styles.button}>
-        <Button
-          title="Try again"
-          color="#a99be0"
-          onPress={() => navigation.navigate('Session')}
-        />
-      </TouchableHighlight>
-      <TouchableHighlight style={styles.button}>
-        <Button
-          title="Home"
-          color="#a99be0"
-          onPress={() => navigation.navigate('Home')}
-        />
-      </TouchableHighlight>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('Session')}>
+          <Text style={styles.button}>Try again</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.button}>Home</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
