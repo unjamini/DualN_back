@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     borderColor: '#bcb1e6',
     margin: 5,
     padding: 25,
-
   },
   box2: {
     width: 60,

@@ -37,7 +37,7 @@ export const generateSequences = (level: number = 1): AnswersAndSequences => {
     { length: level + 20 },
     () => Math.floor(Math.random() * 9),
   );
-  for (let i = level; i < positionsSequence.length; ++i) {
+  for (let i = level; i < positionsSequence.length; i += 1) {
     if (positionsAnswers.indexOf(i) !== -1) {
       // должен совпадать с i - level эелементом
       positionsSequence[i] = positionsSequence[i - level];
@@ -51,7 +51,7 @@ export const generateSequences = (level: number = 1): AnswersAndSequences => {
     { length: level + 20 },
     () => possibleLetters[Math.floor(Math.random() * 9)],
   );
-  for (let i = level; i < lettersSequence.length; ++i) {
+  for (let i = level; i < lettersSequence.length; i += 1) {
     if (lettersAnswers.indexOf(i) !== -1) {
       // должен совпадать с i - level эелементом
       lettersSequence[i] = lettersSequence[i - level];

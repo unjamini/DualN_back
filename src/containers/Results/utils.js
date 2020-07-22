@@ -1,18 +1,11 @@
 // @flow
 
-type Props = {
+export const countMistakes = (
   lettersAnswers: Array<number>,
   positionsAnswers: Array<number>,
   tappedLetters: Array<number>,
   tappedPositions: Array<number>,
-};
-
-export const countMistakes = ({
-  lettersAnswers,
-  positionsAnswers,
-  tappedLetters,
-  tappedPositions,
-}: Props): number => {
+): number => {
   const lettersMistakes = lettersAnswers
     .filter(x => !tappedLetters.includes(x))
     .concat(tappedLetters.filter(x => !lettersAnswers.includes(x))).length;

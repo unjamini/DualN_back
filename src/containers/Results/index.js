@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useCallback, useState } from 'react';
-import { View, Button, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -35,12 +35,11 @@ const Results = ({ navigation }: Props) => {
     useCallback(() => {
       // когда появляется фокус на экран
       setMistakes(
-        countMistakes({
+        countMistakes(
           lettersAnswers,
           positionsAnswers,
           tappedLetters,
-          tappedPositions,
-        }),
+          tappedPositions),
       );
     }, [lettersAnswers, positionsAnswers, tappedLetters, tappedPositions]),
   );

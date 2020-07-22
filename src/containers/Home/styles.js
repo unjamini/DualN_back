@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   button: {
     height: 40,
     width: 160,
-    borderRadius: 25,
+    borderRadius: 20,
     backgroundColor: '#bcb1e6',
     color: 'white',
     fontSize: 24,
