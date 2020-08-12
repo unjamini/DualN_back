@@ -5,12 +5,12 @@ import type { AnswersAndSequences } from '../../types/redux';
 
 const answersIndexes = (level: number = 1): Array<number> => {
   const arr = [];
-  do {
+  while (arr.length < 10) {
     const num = Math.floor(Math.random() * 20) + level;
-    if (arr.indexOf(num) === -1) {
+    if (!arr.includes(num)) {
       arr.push(num);
     }
-  } while (arr.length < 10);
+  }
   return arr;
 };
 
@@ -32,31 +32,30 @@ const generateAnswers = (level: number = 1): Answers => {
 
 export const generateSequences = (level: number = 1): AnswersAndSequences => {
   const { positionsAnswers, lettersAnswers } = generateAnswers(level);
-  // числа от 0 до 8
+  // numbers from 0 to 8
   const positionsSequence: Array<number> = Array.from(
     { length: level + 20 },
     () => Math.floor(Math.random() * 9),
   );
   for (let i = level; i < positionsSequence.length; i += 1) {
-    if (positionsAnswers.indexOf(i) !== -1) {
-      // должен совпадать с i - level эелементом
+    if (positionsAnswers.includes(i)) {
+      // should be the same as the element at (i - level) position
       positionsSequence[i] = positionsSequence[i - level];
     } else if (positionsSequence[i] === positionsSequence[i - level]) {
-      // иначе совпадать не должны
+      // otherwise they should be different
       positionsSequence[i] = (positionsSequence[i] + 1) % 9;
     }
   }
-  // буквы из массива
   const lettersSequence: Array<string> = Array.from(
     { length: level + 20 },
     () => possibleLetters[Math.floor(Math.random() * 9)],
   );
   for (let i = level; i < lettersSequence.length; i += 1) {
-    if (lettersAnswers.indexOf(i) !== -1) {
-      // должен совпадать с i - level эелементом
+    if (lettersAnswers.includes(i)) {
+      // should be the same as the element at (i - level) position
       lettersSequence[i] = lettersSequence[i - level];
     } else if (lettersSequence[i] === lettersSequence[i - level]) {
-      // иначе совпадать не должны
+      // otherwise they should be different
       lettersSequence[i] =
         possibleLetters[(possibleLetters.indexOf(lettersSequence[i]) + 1) % 9];
     }

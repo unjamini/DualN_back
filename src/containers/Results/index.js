@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
 import type { NavigationScreenProps } from '@react-navigation/native';
 
@@ -11,11 +11,8 @@ import { countMistakes } from './utils';
 import { TOTAL_MISTAKES } from '../../constants';
 import { styles } from './styles';
 
-type Props = {|
-  navigation: NavigationScreenProps,
-|};
-
-const Results = ({ navigation }: Props) => {
+const Results = () => {
+  const navigation: NavigationScreenProps = useNavigation();
   const lettersAnswers: Array<number> = useSelector(
     state => state.sessionReducer.lettersAnswers,
   );
@@ -29,11 +26,10 @@ const Results = ({ navigation }: Props) => {
     state => state.sessionReducer.tappedPositionsIndexList,
   );
 
-  const [mistakes: number, setMistakes] = useState(0);
+  const [mistakes, setMistakes] = useState<number>(0);
 
   useFocusEffect(
     useCallback(() => {
-      // когда появляется фокус на экран
       setMistakes(
         countMistakes(
           lettersAnswers,

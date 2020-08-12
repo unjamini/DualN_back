@@ -1,29 +1,29 @@
 // @flow
 
-export type SessionState = {
-  // верные ответы
+export type SessionState = {|
+  // right answers
   lettersAnswers: Array<number>,
   positionsAnswers: Array<number>,
-  // выбранные пользователем
+  // users answers
   tappedLettersIndexList: Array<number>,
   tappedPositionsIndexList: Array<number>,
-  // сгенерированные последовательности
+  // generated sequences of letters and positions
   lettersSequence: Array<string>,
   positionsSequence: Array<number>,
-};
+|};
 
-export type State = {
+export type State = {|
   sessionReducer: SessionState,
-};
+|};
 
-export type Action = {
+export type Action = {|
   type: string,
   lettersAnswers?: Array<number>,
   positionsAnswers?: Array<number>,
   lettersSequence?: Array<string>,
   positionsSequence?: Array<number>,
   index?: number,
-};
+|};
 
 export type AnswersAndSequences = {|
   positionsAnswers: Array<number>,

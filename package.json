@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "$(yarn bin eslint) ."
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",

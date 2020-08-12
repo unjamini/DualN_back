@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NavigationScreenProps } from '@react-navigation/native';
 
 import PositionedSquare from './components/PositionedSquare';
@@ -14,11 +14,8 @@ import { styles } from './styles';
 
 import type { State } from '../../types/redux';
 
-type Props = {|
-  navigation: NavigationScreenProps,
-|};
-
-const Session = ({ navigation }: Props) => {
+const Session = () => {
+  const navigation: NavigationScreenProps = useNavigation();
   const dispatch = useDispatch();
   const positionsSequence = useSelector(
     (state: State) => state.sessionReducer.positionsSequence,
@@ -27,9 +24,9 @@ const Session = ({ navigation }: Props) => {
     (state: State) => state.sessionReducer.lettersSequence,
   );
 
-  const [currentIndex, setIndex] = useState(0);
-  const [running, setRunning] = useState(false);
-  const [countdown, setCountdown] = useState(3);
+  const [currentIndex, setIndex] = useState<number>(0);
+  const [running, setRunning] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState<number>(3);
 
   const recordLetter = useCallback(() => {
     dispatch(addLetter(currentIndex));
@@ -41,7 +38,6 @@ const Session = ({ navigation }: Props) => {
 
   useFocusEffect(
     useCallback(() => {
-      // когда появляется фокус на экран
       setRunning(false);
       setIndex(0);
       setCountdown(3);
@@ -99,13 +95,12 @@ const Session = ({ navigation }: Props) => {
         </View>
       </View>
     );
-  } else {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.countdown}>{countdown}</Text>
-      </View>
-    );
   }
+  return (
+    <View style={styles.container}>
+      <Text style={styles.countdown}>{countdown}</Text>
+    </View>
+  );
 };
 
 export default Session;
